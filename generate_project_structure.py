@@ -18,8 +18,8 @@ def generate_project_structure(root_dir, output_file):
         for file in sorted(os.listdir(root)):
             file_path = os.path.join(root, file)
             if os.path.isfile(file_path):
-                # Пропускаем сам скрипт и его файл вывода
-                if file == os.path.basename(__file__) or file == output_file:
+                # Пропускаем сам скрипт, его файл вывода и дополнительные файлы
+                if file in [os.path.basename(__file__), output_file, 'info.tai', 'create_structure.py', 'read_files.py']:
                     continue
                 f.write(f"{prefix}│   ├── {file}\n")
             elif os.path.isdir(file_path):
@@ -30,8 +30,8 @@ def generate_project_structure(root_dir, output_file):
         for item in sorted(os.listdir(root_dir)):
             item_path = os.path.join(root_dir, item)
             if os.path.isfile(item_path):
-                # Пропускаем сам скрипт и его файл вывода
-                if item == os.path.basename(__file__) or item == output_file:
+                # Пропускаем сам скрипт, его файл вывода и дополнительные файлы
+                if item in [os.path.basename(__file__), output_file, 'info.tai', 'create_structure.py', 'read_files.py']:
                     continue
                 f.write(f"├── {item}\n")
             elif os.path.isdir(item_path):
