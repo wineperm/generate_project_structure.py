@@ -1,7 +1,7 @@
 import os
 
 def generate_project_structure(root_dir, output_file):
-    def print_tree(root, prefix='', is_last=False):
+    def print_tree(root, prefix=''):
         # Пропускаем директорию .git
         if '.git' in root:
             return
@@ -21,14 +21,13 @@ def generate_project_structure(root_dir, output_file):
                 new_prefix = prefix + '│   ' if i < len(items) - 1 else prefix + '    '
                 if i == len(items) - 1:
                     f.write(f"{prefix}└── {item}/\n")
-                    print_tree(item_path, new_prefix, True)
                 else:
                     f.write(f"{prefix}├── {item}/\n")
-                    print_tree(item_path, new_prefix, False)
+                print_tree(item_path, new_prefix)
 
     with open(output_file, 'w') as f:
         f.write(f"{os.path.basename(root_dir)}/\n")
-        print_tree(root_dir, '│   ', False)
+        print_tree(root_dir, '    ')
 
 if __name__ == "__main__":
     # Получаем текущую директорию, где запущен скрипт
