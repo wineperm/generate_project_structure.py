@@ -1,4 +1,7 @@
 # generate_project_structure.py
+```
+wget https://raw.githubusercontent.com/wineperm/generate_project_structure.py/main/generate_project_structure.py
+```
 ### Описание
 
 Скрипт на Python рекурсивно обходит все файлы и директории в указанной корневой директории и записывает их структуру в выходной файл `project_structure.txt`. Скрипт позволяет исключить определенные файлы и директории из обхода.
